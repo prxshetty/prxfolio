@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // For GitHub Pages: uncomment to enable static export
+  // output: "export",
+  // basePath: "/prxfolio",
 };
 
 export default nextConfig;

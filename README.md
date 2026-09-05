@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# prxfolio — Pranam Shetty's portfolio
 
-## Getting Started
+Personal portfolio (Next.js + Tailwind), fork-friendly. Live contributions graph via GitHub API.
 
-First, run the development server:
+## Quick start
 
 ```bash
+npm install
+cp .env.example .env.local   # optional overrides (CV URL, GitHub username, site URL)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Customize (forks)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Rich content lives in `en/*.yaml` — edit those, then run:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run content:sync
+```
 
-## Learn More
+This regenerates `src/data.ts` (profile, experience, projects). Skills are curated in `src/data.ts`.
+Public overrides live in `.env.example` → `.env.local`:
 
-To learn more about Next.js, take a look at the following resources:
+| Var | Purpose | Default |
+| --- | ------- | ------- |
+| `NEXT_PUBLIC_CV_URL` | Resume/CV button link | Google Drive direct download |
+| `NEXT_PUBLIC_GITHUB_USERNAME` | Contribution graph | `prxshetty` |
+| `NEXT_PUBLIC_SITE_URL` | Canonical URL | `https://prxshetty.github.io/prxfolio` |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Why not a full `.env` for everything? `.env*` is gitignored (secrets-oriented) and flat key-values handle lists poorly. YAML stays committed, reviewable, and forkable — env only overrides deployment bits.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy
 
-## Deploy on Vercel
+- **Vercel (recommended):** import repo `prxshetty/prxfolio` → deploy, no config needed.
+- **GitHub Pages:** uncomment `output: "export"` + `basePath: "/prxfolio"` in `next.config.ts`, then `npm run build`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Content sources
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `en/author.yaml` — name, location, socials, honors, certifications
+- `en/experience.yaml` — work history
+- `en/projects.yaml` — projects
+- `en/blogs.yaml` — Medium posts (not yet rendered in UI)
+- CV: https://drive.google.com/file/d/1r6v-fgqYMO6rhngdeFsQP3Gbrn0JECEL/view?usp=sharing
