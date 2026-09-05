@@ -575,14 +575,14 @@ export default function Portfolio({ contributions }: { contributions: Contributi
             alt="Pranam Shetty"
             width={1200}
             height={278}
-            className="hidden h-auto w-full opacity-30 dark:block"
+            className="hidden h-auto w-full opacity-20 dark:block"
           />
           <Image
             src="/footer-light.png"
             alt="Pranam Shetty"
             width={1200}
             height={278}
-            className="h-auto w-full opacity-30 dark:hidden"
+            className="h-auto w-full opacity-20 dark:hidden"
           />
         </footer>
       </main>
