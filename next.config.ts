@@ -1,9 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // For GitHub Pages: uncomment to enable static export
-  // output: "export",
-  // basePath: "/prxfolio",
+  // Static export for GitHub Pages (custom domain serves repo at root,
+  // so no basePath is needed). Deployed via .github/workflows/deploy.yml.
+  output: "export",
+  images: { unoptimized: true },
 };
 
 export default nextConfig;
