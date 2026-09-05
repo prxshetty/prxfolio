@@ -3,7 +3,7 @@
 // CV uses the Drive *view* link so it opens in a new tab (no forced download).
 const CV_URL =
   process.env.NEXT_PUBLIC_CV_URL ??
-  "https://drive.google.com/file/d/1r6v-fgqYMO6rhngdeFsQP3Gbrn0JECEL/view?usp=sharing";
+  "https://drive.google.com/file/d/1fzpG-faTi5edqGlsVUmH5Y5ds5XAJgF5/view?usp=sharing";
 const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME ?? "prxshetty";
 
 const MARGIN_URL = "https://prxshetty.github.io/margin/";
@@ -31,6 +31,7 @@ export const experience = [
   {
     company: "GoodFin",
     role: "AI Engineer Intern",
+    shortRole: "AI Engineer",
     date: "2025 · United States",
     shortDate: "2025",
     icon: "finance" as const,
@@ -43,6 +44,7 @@ export const experience = [
   {
     company: "Marva.ai",
     role: "ML Engineer Intern",
+    shortRole: "ML Engineer",
     date: "2023 · India",
     shortDate: "2023",
     icon: "cloud" as const,
@@ -56,6 +58,7 @@ export const experience = [
   {
     company: "KSI",
     role: "ML Research Intern",
+    shortRole: "ML Researcher",
     date: "2021 · India",
     shortDate: "2021",
     icon: "data" as const,
@@ -108,13 +111,13 @@ export const projects: {
   name: string;
   description: string;
   href: string;
-  icon: "paykit" | "superzed" | "hitch" | "opensec" | "pen";
+  icon: "paykit" | "superzed" | "hitch" | "opensec";
   youtube?: string;
 }[] = [
   {
     name: "Grok Interviews",
     description:
-      "3.6M+ interview resources and 81K technical questions across 5 domains — multi-LLM pipelines over 20+ search engines. Live at grokinterviews.org.",
+      "3.6M+ curated interview resources and 81K technical questions across 5 domains — scraped by multi-LLM pipelines over 20+ search engines. Live at grokinterviews.org.",
     href: "https://github.com/prxshetty/grokinterviews",
     icon: "paykit" as const,
     youtube: "https://www.youtube.com/watch?v=bCTKYImpETI",
@@ -122,9 +125,10 @@ export const projects: {
   {
     name: "Margin",
     description:
-      "Local-first AI writing studio — markdown-native, automatic context from characters and lore, diff review. Works with local LLMs or your agent subscription.",
+      "Local-first AI writing studio for storytellers — markdown-native editor, automatic context from characters and lore, diff review, works with local LLMs or your own agent subscription.",
     href: "https://prxshetty.github.io/margin/",
     icon: "superzed" as const,
+    youtube: "https://youtu.be/X18DxQ_3ju8?si=Kv5BRzR_pR2ZQKbl",
   },
   {
     name: "Hugo Noir",
@@ -136,16 +140,15 @@ export const projects: {
   {
     name: "Lumi",
     description:
-      "BrickHack runner-up — voice-controlled Mac agent with 10 custom tools, real-time speech, and script execution. Built from scratch in 24h.",
+      "BrickHack runner-up — the first voice-controlled Mac agent: 10 custom tools, real-time speech with interruptions, script execution, web search and image gen, all built from scratch in 24h.",
     href: "https://devpost.com/software/lumi-personal-ai-assistant",
     icon: "opensec" as const,
-    youtube: "https://youtu.be/X18DxQ_3ju8?si=Kv5BRzR_pR2ZQKbl",
   },
   {
     name: "Critique",
     description:
-      "Minimal on-device writing assistant for macOS — Swift, MLX, LLM routing, your own API keys.",
+      "Lightweight, minimal writing assistant for macOS that runs entirely on-device — Swift, MLX, LLM routing, your own API keys.",
     href: "https://prxshetty.github.io/Critique/",
-    icon: "pen" as const,
+    icon: "paykit" as const,
   },
 ];

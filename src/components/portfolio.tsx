@@ -436,21 +436,19 @@ export default function Portfolio({ contributions }: { contributions: Contributi
                         {i === 0 && <span className="timeline-status-halo pointer-events-none absolute -inset-1.5 rounded-full" />}
                         <span className={`relative size-2 rounded-full ${i === 0 ? "bg-[var(--foreground)]" : "bg-[var(--timeline-dot)]"}`} />
                       </motion.span>
-                      <motion.div className="flex min-w-0 items-center gap-[10px]" variants={entryVariants} custom={i}>
-                        <span className="squircle flex size-6 shrink-0 items-center justify-center rounded-mark border border-[var(--border)] bg-[var(--accent)] text-[var(--foreground-secondary)] [&_svg]:size-3.5">
+                      <motion.div className="flex min-w-0 items-start gap-[10px]" variants={entryVariants} custom={i}>
+                        <span className="squircle mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-mark border border-[var(--border)] bg-[var(--accent)] text-[var(--foreground-secondary)] [&_svg]:size-3.5">
                           {experienceIcon(job.icon)}
                         </span>
-                        <span className="truncate text-sm" style={{ color: i === 0 ? "var(--foreground)" : "var(--foreground-secondary)" }}>
-                          {job.company}
+                        <span className="flex min-w-0 flex-col">
+                          <span className="truncate text-sm leading-5" style={{ color: i === 0 ? "var(--foreground)" : "var(--foreground-secondary)" }}>
+                            {job.shortRole}
+                          </span>
+                          <span className="truncate text-[13px] leading-5 text-[var(--muted-foreground)]">
+                            {job.company}
+                          </span>
                         </span>
                       </motion.div>
-                      <motion.p
-                        className="mt-1.5 truncate text-[13px] leading-none text-[var(--muted-foreground)]"
-                        variants={entryVariants}
-                        custom={i}
-                      >
-                        {job.shortDate}
-                      </motion.p>
                     </li>
                   ))}
                 </ol>
