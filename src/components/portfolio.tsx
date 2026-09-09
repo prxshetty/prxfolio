@@ -252,15 +252,34 @@ function ProjectIcon({ type }: { type: string }) {
   );
 }
 
+const LINK_TOOLTIPS: Record<string, string> = {
+  noir: "100 stars, featured on Hugo",
+  margin: "an AI writing IDE",
+};
+
 function renderInlineLinks(text: string, keyPrefix: string) {
   const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
   return parts.map((part, j) => {
     const m = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(part);
     if (!m) return <span key={`${keyPrefix}-${j}`}>{part}</span>;
+    const label = m[1];
+    const tip = LINK_TOOLTIPS[label.toLowerCase()];
+    if (!tip) {
+      return (
+        <a key={`${keyPrefix}-${j}`} href={m[2]} target="_blank" rel="noreferrer" className="underline decoration-[var(--foreground-decoration)] hover:decoration-current underline-offset-2 transition">
+          {label}
+        </a>
+      );
+    }
     return (
-      <a key={`${keyPrefix}-${j}`} href={m[2]} target="_blank" rel="noreferrer" className="underline decoration-current underline-offset-2">
-        {m[1]}
-      </a>
+      <span key={`${keyPrefix}-${j}`} className="group/tooltip relative inline-block">
+        <a href={m[2]} target="_blank" rel="noreferrer" className="underline decoration-[var(--foreground-decoration)] hover:decoration-current underline-offset-2 transition">
+          {label}
+        </a>
+        <span role="tooltip" className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-1 w-max -translate-x-1/2 translate-y-0.5 whitespace-nowrap rounded-md border border-[var(--border)] bg-[var(--card)] px-2 py-1 text-center text-[11px] leading-4 text-[var(--foreground-secondary)] opacity-0 shadow-md transition group-hover/tooltip:translate-y-0 group-hover/tooltip:opacity-100">
+          {tip}
+        </span>
+      </span>
     );
   });
 }
@@ -324,6 +343,9 @@ export default function Portfolio({ contributions }: { contributions: Contributi
           <div className="flex flex-row items-center justify-between gap-4">
             <div>
               <h1 className="text-[19px] font-medium tracking-tight leading-none">{profile.name}</h1>
+              {profile.role && (
+                <p className="mt-1.5 text-[13px] leading-4 text-[var(--foreground-secondary)]">{profile.role}</p>
+              )}
             </div>
             <nav aria-label="Social links" className="shrink-0 -mr-2">
               <ul className="flex items-center gap-px justify-end">
