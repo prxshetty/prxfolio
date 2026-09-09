@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pranam Shetty",
+  title: "Pranam",
   description: "AI/ML engineer based in New York, building local-first AI tools.",
   icons: {
     icon: [

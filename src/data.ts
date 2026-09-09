@@ -3,19 +3,19 @@
 // CV uses the Drive *view* link so it opens in a new tab (no forced download).
 const CV_URL =
   process.env.NEXT_PUBLIC_CV_URL ??
-  "https://drive.google.com/file/d/1fzpG-faTi5edqGlsVUmH5Y5ds5XAJgF5/view?usp=sharing";
+  "https://drive.google.com/file/d/1dWrSL7WFW2tw8-lZRmI0gKawHNmYtba2/view?usp=sharing";
 const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME ?? "prxshetty";
 
 const MARGIN_URL = "https://prxshetty.github.io/margin/";
 
 export const profile = {
-  name: "Pranam Shetty",
-  role: "AI / ML Engineer",
+  name: "Pranam",
+  role: "",
   location: "Rochester, NY",
   githubUsername: GITHUB_USERNAME,
-  bio: "hi there — I'm an AIML engineer based in New York. Right now I'm building Margin, a local-first AI writing studio that keeps everything on your machine.",
-  bio2: "Before that I interned at 3 startups — most recently GoodFin (YC), where I built LLM eval and benchmarking systems and led research covered across financial press. My Hugo theme even picked up 100 stars on GitHub, which was a fun surprise.",
-  bio3: "I'm currently open to AIML and software engineering roles — if you like my work and would like to talk more, feel free to send me a message.",
+  bio: "hi there - I'm an engineer based in New York. I like open source, music and chicken. Right now I'm working on [Margin](https://prxshetty.github.io/margin/), [Hugo Noir](https://themes.gohugo.io/themes/hugo-noir/) and a few other projects.",
+  bio2: "Before that I interned at 3 startups - most recently GoodFin (YC), where I built LLM eval and benchmarking systems covered on [CNBC](https://drive.google.com/file/d/1mgHM0do_BvjVAWK2H_XLJJLTOmNzYFbU/view).",
+  bio3: "If you like my work and would like to talk about anything, come say [hi](mailto:ps9960@g.rit.edu).",
   links: {
     x: "https://www.twitter.com/pnxshy",
     github: "https://github.com/prxshetty",
@@ -24,6 +24,7 @@ export const profile = {
     resume: CV_URL,
     margin: MARGIN_URL,
     hugo: "https://themes.gohugo.io/themes/hugo-noir/",
+    cnbc: "https://drive.google.com/file/d/1mgHM0do_BvjVAWK2H_XLJJLTOmNzYFbU/view",
   },
 };
 

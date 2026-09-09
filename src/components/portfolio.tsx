@@ -71,7 +71,7 @@ function SeeMoreButton({ open, onClick, controls }: { open: boolean; onClick: ()
       onClick={onClick}
       aria-expanded={open}
       aria-controls={controls}
-      className="squircle -mr-2.5 flex h-7 shrink-0 items-center gap-1 rounded-[10px] px-2.5 text-[13px] font-medium text-[var(--foreground-secondary)] hover:bg-[var(--muted)] hover:text-[var(--foreground)] transition"
+      className="squircle -mr-2.5 flex h-7 shrink-0 items-center gap-1 rounded-[10px] px-2.5 text-[13.5px] font-medium text-[var(--foreground-secondary)] hover:bg-[var(--muted)] hover:text-[var(--foreground)] transition"
     >
       {open ? "See less" : "See more"}
       <motion.span
@@ -105,15 +105,47 @@ function IconGithub({ size = 16 }: { size?: number }) {
 }
 function IconLinkedin({ size = 16 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-      <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.48-2.24-1.68-2.24-.91 0-1.45.61-1.69 1.21-.09.21-.11.51-.11.81v5.79H9.87s.05-9.39 0-10.36h3.55v1.47c.47-.73 1.31-1.76 3.2-1.76 2.33 0 4.08 1.52 4.08 4.8v5.85ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V10.09h3.56v10.36Z" />
+    <svg width={size} height={size} viewBox="-2 -2 24 24" fill="currentColor" aria-hidden>
+      <g fill="currentColor">
+        <path d="M15 11.13v3.697h-2.143v-3.45c0-.866-.31-1.457-1.086-1.457c-.592 0-.945.398-1.1.784c-.056.138-.071.33-.071.522v3.601H8.456s.029-5.842 0-6.447H10.6v.913l-.014.021h.014v-.02c.285-.44.793-1.066 1.932-1.066c1.41 0 2.468.922 2.468 2.902zM6.213 5.271C5.48 5.271 5 5.753 5 6.385c0 .62.466 1.115 1.185 1.115h.014c.748 0 1.213-.496 1.213-1.115c-.014-.632-.465-1.114-1.199-1.114zm-1.086 9.556h2.144V8.38H5.127v6.447z" />
+        <path d="M4 2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4zm0-2h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z" />
+      </g>
     </svg>
   );
 }
+
+function IconResume({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <path d="M14 2v6h6" />
+      <path d="M9 13h6" />
+      <path d="M9 17h6" />
+    </svg>
+  );
+}
+
+function IconMail({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <rect width="20" height="16" x="2" y="4" rx="2" />
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+    </svg>
+  );
+}
+
 function IconExternal({ size = 12 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
       <path d="M7 17L17 7M9 7h8v8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+function IconSearch({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <circle cx="11" cy="11" r="7" />
+      <path d="m21 21-4.3-4.3" />
     </svg>
   );
 }
@@ -160,7 +192,21 @@ function IconMegaphone() {
   );
 }
 const experienceIcon = (icon: string) =>
-  icon === "finance" ? <IconFinance /> : icon === "cloud" ? <IconCloud /> : icon === "megaphone" ? <IconMegaphone /> : <IconData />;
+  icon === "finance" ? <IconFinance /> : icon === "cloud" ? <IconCloud /> : icon === "megaphone" ? <IconMegaphone /> : icon === "search" ? <IconSearch size={18} /> : <IconData />;
+
+// 4th timeline node — achievements framed for AI/ML engineering (not research)
+const OPEN_TO_WORK = {
+  company: "Open to work",
+  role: "AI / ML / SDE",
+  shortRole: "Open to work",
+  date: "2026 · Open to opportunities",
+  icon: "search",
+  bullets: [
+    "Published research at FinLLM (Best Presentation Award) and JAIR on LLMs, reasoning and output evaluation and benchmarking.",
+    "Open-source contributions — PRs and issues opened and closed across Hugo, Raycast, LangChain, and Hugging Face.",
+    "Strongest at LLM eval and benchmarking, RAG agents, and shipping full-stack AI features end to end.",
+  ],
+};
 
 // Project icons – minimal geometric
 function ProjectIcon({ type }: { type: string }) {
@@ -212,7 +258,7 @@ function renderInlineLinks(text: string, keyPrefix: string) {
     const m = /^\[([^\]]+)\]\(([^)]+)\)$/.exec(part);
     if (!m) return <span key={`${keyPrefix}-${j}`}>{part}</span>;
     return (
-      <a key={`${keyPrefix}-${j}`} href={m[2]} target="_blank" rel="noreferrer" className="underline decoration-[var(--foreground-decoration)] underline-offset-2 hover:decoration-[var(--foreground-decoration-hover)] transition">
+      <a key={`${keyPrefix}-${j}`} href={m[2]} target="_blank" rel="noreferrer" className="underline decoration-current underline-offset-2">
         {m[1]}
       </a>
     );
@@ -277,11 +323,10 @@ export default function Portfolio({ contributions }: { contributions: Contributi
         <header aria-label="Hero" className="flex flex-col">
           <div className="flex flex-row items-center justify-between gap-4">
             <div>
-              <h1 className="text-[17px] font-medium tracking-tight leading-none">{profile.name}</h1>
-              <p className="mt-1.5 text-[13px] text-[var(--muted-foreground)] leading-none">{profile.role}</p>
+              <h1 className="text-[19px] font-medium tracking-tight leading-none">{profile.name}</h1>
             </div>
-            <nav aria-label="Social links">
-              <ul className="flex flex-wrap gap-px">
+            <nav aria-label="Social links" className="shrink-0 -mr-2">
+              <ul className="flex items-center gap-px justify-end">
                 <li>
                   <a href={profile.links.x} aria-label="X" className="squircle flex size-7 items-center justify-center rounded-[10px] border border-transparent bg-transparent text-[var(--foreground-secondary)] hover:bg-[var(--muted)] hover:text-[var(--foreground)] transition">
                     <IconX size={14} />
@@ -297,40 +342,30 @@ export default function Portfolio({ contributions }: { contributions: Contributi
                     <IconLinkedin size={14} />
                   </a>
                 </li>
+                <li>
+                  <a href={profile.links.email} aria-label="Email" className="squircle flex size-7 items-center justify-center rounded-[10px] border border-transparent text-[var(--foreground-secondary)] hover:bg-[var(--muted)] hover:text-[var(--foreground)] transition">
+                    <IconMail size={14} />
+                  </a>
+                </li>
+                <li>
+                  <a href={profile.links.resume} target="_blank" rel="noreferrer" aria-label="Resume" className="squircle flex size-7 items-center justify-center rounded-[10px] border border-transparent text-[var(--foreground-secondary)] hover:bg-[var(--muted)] hover:text-[var(--foreground)] transition">
+                    <IconResume size={14} />
+                  </a>
+                </li>
               </ul>
             </nav>
           </div>
 
-          <div className="mt-6 space-y-2.5 text-[13.5px] leading-[22px] text-[var(--foreground-secondary)]">
-            <p>
-              {profile.bio.split("Margin")[0]}
-              <a href={profile.links.margin} target="_blank" rel="noreferrer" className="underline decoration-current underline-offset-3">
-                Margin
-              </a>
-              {profile.bio.split("Margin")[1]}
-            </p>
-            <p>
-              {profile.bio2.split("Hugo theme")[0]}
-              <a href={profile.links.hugo} target="_blank" rel="noreferrer" className="underline decoration-current underline-offset-3">
-                Hugo theme
-              </a>
-              {profile.bio2.split("Hugo theme")[1]}
-            </p>
-            <p>{profile.bio3}</p>
-          </div>
-
-          <div className="mt-[22px] flex flex-wrap gap-2">
-            <a href={profile.links.email} className="squircle inline-flex h-8 items-center gap-1.5 rounded-[10px] bg-[var(--primary)] px-3 text-[13px] font-medium text-[var(--primary-foreground)] hover:bg-[var(--primary)]/80 transition">
-              Email me <span aria-hidden>→</span>
-            </a>
-            <a href={profile.links.resume} target="_blank" rel="noreferrer" className="squircle inline-flex h-8 items-center gap-[3px] rounded-[10px] border border-[var(--border)] bg-[var(--background)] px-3 text-[13px] font-medium text-[var(--foreground)] hover:bg-[var(--muted)] transition">
-              View resume
-            </a>
+          <div className="mt-6 space-y-2.5 text-[15px] leading-[24px] text-[var(--foreground-secondary)]">
+            <p>{renderInlineLinks(profile.bio, "bio")}</p>
+            <p>{renderInlineLinks(profile.bio2, "bio2")}</p>
+            <p>{renderInlineLinks(profile.bio3, "bio3")}</p>
           </div>
         </header>
 
         {/* Performance – live GitHub graph */}
         <section aria-label="GitHub contributions" className="flex flex-col gap-5">
+          <h2 className="text-sm font-medium tracking-tight">Throughput</h2>
           <div className="no-scrollbar scroll-fade-x max-w-full overflow-x-auto overflow-y-hidden pb-1">
             <div className="w-max">
               {/* month labels */}
@@ -355,6 +390,36 @@ export default function Portfolio({ contributions }: { contributions: Contributi
         <section className="flex flex-col gap-5 min-[570px]:hidden" aria-labelledby="experience-heading-mobile">
           <h2 id="experience-heading-mobile" className="text-sm font-medium tracking-tight">Experience</h2>
           <ol className="space-y-[22px]">
+            <li key="open-to-work" className="group relative">
+              {/* hover bg */}
+              <button
+                type="button"
+                onClick={() => setExpandedExp(expandedExp === experience.length ? null : experience.length)}
+                className={`absolute -inset-x-3 -inset-y-2 squircle rounded-xl transition ${expandedExp === experience.length ? "bg-[var(--timeline-hover)]" : "group-hover:bg-[var(--timeline-hover)]"}`}
+                aria-expanded={expandedExp === experience.length}
+                aria-controls={`exp-mobile-${experience.length}`}
+              />
+              <div className="relative grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-[10px]">
+                <span className="squircle rounded-mark flex size-8 items-center justify-center logo-badge bg-transparent text-[var(--foreground-secondary)]">
+                  {experienceIcon("search")}
+                </span>
+                <div className="min-w-0 flex flex-col">
+                  <h3 className="text-[14px] font-medium leading-none tracking-tight">
+                    {OPEN_TO_WORK.company}
+                  </h3>
+                  <p className="text-[13px] text-[var(--foreground-secondary)] leading-4 mt-1">{OPEN_TO_WORK.role}</p>
+                  <p className="text-[13px] leading-4 text-[var(--muted-foreground)] mt-0.5">{OPEN_TO_WORK.date}</p>
+                </div>
+                <span className="flex items-center self-start pt-0.5 text-[var(--muted-foreground)]">
+                  <IconChevron open={expandedExp === experience.length} />
+                </span>
+              </div>
+              <Collapse open={expandedExp === experience.length}>
+                <div className="pl-[42px] pt-3">
+                  <Bullets items={OPEN_TO_WORK.bullets} />
+                </div>
+              </Collapse>
+            </li>
             {experience.map((job, idx) => {
               const isOpen = expandedExp === idx;
               return (
@@ -368,7 +433,7 @@ export default function Portfolio({ contributions }: { contributions: Contributi
                     aria-controls={`exp-mobile-${idx}`}
                   />
                   <div className="relative grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-[10px]">
-                    <span className="squircle rounded-mark flex size-8 items-center justify-center border border-[var(--border)] bg-[var(--accent)] text-[var(--foreground-secondary)]">
+                    <span className="squircle rounded-mark flex size-8 items-center justify-center logo-badge bg-transparent text-[var(--foreground-secondary)]">
                       {experienceIcon(job.icon)}
                     </span>
                     <div className="min-w-0 flex flex-col">
@@ -421,11 +486,34 @@ export default function Portfolio({ contributions }: { contributions: Contributi
                   className="absolute left-[7px] top-[11.5px] h-px bg-gradient-to-r from-[var(--foreground)]/40 to-transparent"
                   style={{
                     transformOrigin: "left center",
-                    width: `calc((100% - ${(experience.length - 1) * 0.5}rem) / ${experience.length} + 5px)`,
+                    width: `calc((100% - ${experience.length * 0.5}rem) / ${experience.length + 1} + 5px)`,
                   }}
                   variants={lineVariants}
                 />
-                <ol className="grid gap-2" style={{ gridTemplateColumns: `repeat(${experience.length}, minmax(0, 1fr))` }}>
+                <ol className="grid gap-2" style={{ gridTemplateColumns: `repeat(${experience.length + 1}, minmax(0, 1fr))` }}>
+                  <li key="open-to-work" className="relative min-w-0 pt-7">
+                    <motion.span
+                      className="absolute left-1 top-2 flex size-2 items-center justify-center"
+                      variants={dotVariants}
+                      aria-hidden
+                    >
+                      <span className="timeline-status-halo pointer-events-none absolute -inset-1.5 rounded-full" />
+                      <span className="relative size-2 rounded-full bg-[var(--foreground)]" />
+                    </motion.span>
+                    <motion.div className="flex min-w-0 items-start gap-[10px]" variants={entryVariants} custom={0}>
+                      <span className="squircle mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-mark logo-badge bg-transparent text-[var(--foreground-secondary)] [&_svg]:size-3.5">
+                        {experienceIcon("search")}
+                      </span>
+                      <span className="flex min-w-0 flex-col">
+                        <span className="truncate text-sm leading-5 text-[var(--foreground)]">
+                          {OPEN_TO_WORK.shortRole}
+                        </span>
+                        <span className="truncate text-[13px] leading-5 text-[var(--muted-foreground)]">
+                          {OPEN_TO_WORK.role}
+                        </span>
+                      </span>
+                    </motion.div>
+                  </li>
                   {experience.map((job, i) => (
                     <li key={job.company} className="relative min-w-0 pt-7">
                       <motion.span
@@ -433,15 +521,14 @@ export default function Portfolio({ contributions }: { contributions: Contributi
                         variants={dotVariants}
                         aria-hidden
                       >
-                        {i === 0 && <span className="timeline-status-halo pointer-events-none absolute -inset-1.5 rounded-full" />}
-                        <span className={`relative size-2 rounded-full ${i === 0 ? "bg-[var(--foreground)]" : "bg-[var(--timeline-dot)]"}`} />
+                        <span className="relative size-2 rounded-full bg-[var(--timeline-dot)]" />
                       </motion.span>
-                      <motion.div className="flex min-w-0 items-start gap-[10px]" variants={entryVariants} custom={i}>
-                        <span className="squircle mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-mark border border-[var(--border)] bg-[var(--accent)] text-[var(--foreground-secondary)] [&_svg]:size-3.5">
+                      <motion.div className="flex min-w-0 items-start gap-[10px]" variants={entryVariants} custom={i + 1}>
+                        <span className="squircle mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-mark logo-badge bg-transparent text-[var(--foreground-secondary)] [&_svg]:size-3.5">
                           {experienceIcon(job.icon)}
                         </span>
                         <span className="flex min-w-0 flex-col">
-                          <span className="truncate text-sm leading-5" style={{ color: i === 0 ? "var(--foreground)" : "var(--foreground-secondary)" }}>
+                          <span className="truncate text-sm leading-5 text-[var(--foreground-secondary)]">
                             {job.shortRole}
                           </span>
                           <span className="truncate text-[13px] leading-5 text-[var(--muted-foreground)]">
@@ -464,23 +551,44 @@ export default function Portfolio({ contributions }: { contributions: Contributi
               aria-hidden={!timelineExpanded || undefined}
             >
               <ol className="space-y-[22px]">
+                <li key="open-to-work" className="relative min-w-0">
+                  <motion.div
+                    className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-[10px] gap-y-2"
+                    variants={rowVariants}
+                    custom={0}
+                  >
+                    <span className="squircle flex size-8 shrink-0 items-center justify-center self-start rounded-mark logo-badge bg-transparent text-[var(--foreground-secondary)] [&_svg]:size-[18px]">
+                      {experienceIcon("search")}
+                    </span>
+                    <div className="min-w-0">
+                      <h3 className="text-[14px] font-medium leading-none tracking-tight text-[var(--foreground)]">
+                        {OPEN_TO_WORK.company}
+                      </h3>
+                      <p className="mt-1 text-[13px] leading-4 text-[var(--foreground-secondary)]">{OPEN_TO_WORK.role}</p>
+                      <p className="mt-0.5 text-[13px] leading-4 text-[var(--muted-foreground)]">{OPEN_TO_WORK.date}</p>
+                    </div>
+                  </motion.div>
+                  <motion.div className="pl-[42px] pt-3" variants={bulletsVariants} custom={0}>
+                    <Bullets items={OPEN_TO_WORK.bullets} />
+                  </motion.div>
+                </li>
                 {experience.map((job, i) => (
                   <li key={job.company} className="relative min-w-0">
                     <motion.div
                       className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-[10px] gap-y-2"
                       variants={rowVariants}
-                      custom={i}
+                      custom={i + 1}
                     >
-                      <span className="squircle flex size-8 shrink-0 items-center justify-center self-start rounded-mark border border-[var(--border)] bg-[var(--accent)] text-[var(--foreground-secondary)] [&_svg]:size-[18px]">
+                      <span className="squircle flex size-8 shrink-0 items-center justify-center self-start rounded-mark logo-badge bg-transparent text-[var(--foreground-secondary)] [&_svg]:size-[18px]">
                         {experienceIcon(job.icon)}
                       </span>
                       <div className="min-w-0">
-                        <h3 className="text-[14px] font-medium leading-none tracking-tight" style={{ color: i === 0 ? "var(--foreground)" : "var(--foreground-secondary)" }}>{job.company}</h3>
+                        <h3 className="text-[14px] font-medium leading-none tracking-tight text-[var(--foreground-secondary)]">{job.company}</h3>
                         <p className="mt-1 text-[13px] leading-4 text-[var(--foreground-secondary)]">{job.role}</p>
                         <p className="mt-0.5 text-[13px] leading-4 text-[var(--muted-foreground)]">{job.date}</p>
                       </div>
                     </motion.div>
-                    <motion.div className="pl-[42px] pt-3" variants={bulletsVariants} custom={i}>
+                    <motion.div className="pl-[42px] pt-3" variants={bulletsVariants} custom={i + 1}>
                       <Bullets items={job.bullets} />
                     </motion.div>
                   </li>
@@ -523,7 +631,7 @@ export default function Portfolio({ contributions }: { contributions: Contributi
                 >
                   <span
                     aria-hidden="true"
-                    className="squircle flex shrink-0 items-center justify-center rounded-mark border border-[var(--border)] bg-[var(--accent)] text-[var(--foreground-secondary)] size-8 [&_svg]:size-[18px] self-center"
+                    className="squircle flex shrink-0 items-center justify-center rounded-mark logo-badge bg-transparent text-[var(--foreground-secondary)] size-8 [&_svg]:size-[18px] self-center"
                   >
                     <ProjectIcon type={p.icon} />
                   </span>
@@ -567,7 +675,7 @@ export default function Portfolio({ contributions }: { contributions: Contributi
         </section>
 
         {/* Sign-off */}
-        <footer className="mt-auto flex justify-center">
+        <footer className="mt-auto flex flex-col items-center gap-6">
           <Image
             src="/footer-dark.png"
             alt="Pranam Shetty"
