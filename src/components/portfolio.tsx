@@ -182,6 +182,18 @@ function IconData() {
     </svg>
   );
 }
+function IconAIPlatform() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M8.5 8.5 5 5m10.5 3.5L19 5M12 12v7" />
+      <circle cx="12" cy="12" r="2.5" />
+      <circle cx="5" cy="5" r="2" />
+      <circle cx="19" cy="5" r="2" />
+      <circle cx="12" cy="19" r="2" />
+      <path d="m12 9.5.8-1.2m-.8 6.2.8 1.2m-3.3-4.7h-1.2m6.7 0h1.2" />
+    </svg>
+  );
+}
 function IconMegaphone() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
@@ -192,19 +204,16 @@ function IconMegaphone() {
   );
 }
 const experienceIcon = (icon: string) =>
-  icon === "finance" ? <IconFinance /> : icon === "cloud" ? <IconCloud /> : icon === "megaphone" ? <IconMegaphone /> : icon === "search" ? <IconSearch size={18} /> : <IconData />;
+  icon === "finance" ? <IconFinance /> : icon === "cloud" ? <IconCloud /> : icon === "megaphone" ? <IconMegaphone /> : icon === "search" ? <IconSearch size={18} /> : icon === "ai-platform" ? <IconAIPlatform /> : <IconData />;
 
-// 4th timeline node — achievements framed for AI/ML engineering (not research)
 const OPEN_TO_WORK = {
-  company: "Open to work",
-  role: "AI / ML / SDE",
-  shortRole: "Open to work",
-  date: "2026 · Open to opportunities",
-  icon: "search",
+  company: "House of 434",
+  role: "Software Development Engineer",
+  shortRole: "Software Engineer",
+  date: "Sep 2026 — Present · United States",
+  icon: "ai-platform",
   bullets: [
-    "Published research at FinLLM (Best Presentation Award) and JAIR on LLMs, reasoning and output evaluation and benchmarking.",
-    "Open-source contributions — PRs and issues opened and closed across Hugo, Raycast, LangChain, and Hugging Face.",
-    "Strongest at LLM eval and benchmarking, RAG agents, and shipping full-stack AI features end to end.",
+    "Building an intelligent technology platform with the team, focusing on data pipelines, automation workflows, and AI evaluations.",
   ],
 };
 
@@ -422,7 +431,7 @@ export default function Portfolio({ contributions }: { contributions: Contributi
               />
               <div className="relative grid grid-cols-[auto_minmax(0,1fr)_auto] gap-x-[10px]">
                 <span className="squircle rounded-mark flex size-8 items-center justify-center logo-badge bg-transparent text-[var(--foreground-secondary)]">
-                  {experienceIcon("search")}
+                  {experienceIcon(OPEN_TO_WORK.icon)}
                 </span>
                 <div className="min-w-0 flex flex-col">
                   <h3 className="text-[14px] font-medium leading-none tracking-tight">
@@ -511,7 +520,7 @@ export default function Portfolio({ contributions }: { contributions: Contributi
                   }}
                   variants={lineVariants}
                 />
-                <ol className="grid gap-2" style={{ gridTemplateColumns: `repeat(${experience.length + 1}, minmax(0, 1fr))` }}>
+                <ol className="grid gap-2" style={{ gridTemplateColumns: `1.4fr repeat(${experience.length}, minmax(0, 1fr))` }}>
                   <li key="open-to-work" className="relative min-w-0 pt-7">
                     <motion.span
                       className="absolute left-1 top-2 flex size-2 items-center justify-center"
@@ -523,14 +532,14 @@ export default function Portfolio({ contributions }: { contributions: Contributi
                     </motion.span>
                     <motion.div className="flex min-w-0 items-start gap-[10px]" variants={entryVariants} custom={0}>
                       <span className="squircle mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-mark logo-badge bg-transparent text-[var(--foreground-secondary)] [&_svg]:size-3.5">
-                        {experienceIcon("search")}
+                        {experienceIcon(OPEN_TO_WORK.icon)}
                       </span>
                       <span className="flex min-w-0 flex-col">
                         <span className="truncate text-sm leading-5 text-[var(--foreground)]">
                           {OPEN_TO_WORK.shortRole}
                         </span>
                         <span className="truncate text-[13px] leading-5 text-[var(--muted-foreground)]">
-                          {OPEN_TO_WORK.role}
+                          {OPEN_TO_WORK.company}
                         </span>
                       </span>
                     </motion.div>
@@ -579,7 +588,7 @@ export default function Portfolio({ contributions }: { contributions: Contributi
                     custom={0}
                   >
                     <span className="squircle flex size-8 shrink-0 items-center justify-center self-start rounded-mark logo-badge bg-transparent text-[var(--foreground-secondary)] [&_svg]:size-[18px]">
-                      {experienceIcon("search")}
+                      {experienceIcon(OPEN_TO_WORK.icon)}
                     </span>
                     <div className="min-w-0">
                       <h3 className="text-[14px] font-medium leading-none tracking-tight text-[var(--foreground)]">
