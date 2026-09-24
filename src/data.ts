@@ -14,7 +14,7 @@ export const profile = {
   location: "Rochester, NY",
   githubUsername: GITHUB_USERNAME,
   bio: "I'm an Engineer based in New York, with 2+ years of experience building AI, ML, and software systems across professional engineering, open source, and independent projects.",
-  bio2: "Most recently, I worked as an AI Engineer at GoodFin, where I built an end-to-end LLM benchmarking and evaluation system for financial reasoning, featured in a live [CNBC](https://drive.google.com/file/d/1mgHM0do_BvjVAWK2H_XLJJLTOmNzYFbU/view). I've also worked on real-time ML systems, distributed data pipelines, software and multimodal models.",
+  bio2: "Most recently, I worked as an AI Engineer at GoodFin, where I built an end-to-end LLM benchmarking and evaluation system for financial reasoning, featured live on [CNBC](https://drive.google.com/file/d/1mgHM0do_BvjVAWK2H_XLJJLTOmNzYFbU/view).",
   bio3: "I'm currently building HireMeOrElse, a computer-use browser agent for automating the job search and application process. I've also built [noir](https://themes.gohugo.io/themes/hugo-noir/) and [margin](https://prxshetty.github.io/margin/). If you're interested in my work or think I'd be a good fit for your team, feel free to reach out.",
   links: {
     x: "https://www.twitter.com/pnxshy",
@@ -129,7 +129,6 @@ export const projects: {
       "Local-first AI writing studio for storytellers — markdown-native editor, automatic context from characters and lore, diff review, works with local LLMs or your own agent subscription.",
     href: "https://prxshetty.github.io/margin/",
     icon: "superzed" as const,
-    youtube: "https://youtu.be/X18DxQ_3ju8?si=Kv5BRzR_pR2ZQKbl",
   },
   {
     name: "Hugo Noir",

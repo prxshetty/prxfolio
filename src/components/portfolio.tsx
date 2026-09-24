@@ -321,7 +321,6 @@ function SkillRow({ category, items }: { category: string; items: Skill[] }) {
 export default function Portfolio({ contributions }: { contributions: ContributionsData }) {
   const [expandedExp, setExpandedExp] = useState<number | null>(null);
   const [timelineExpanded, setTimelineExpanded] = useState(false);
-  const [skillsExpanded, setSkillsExpanded] = useState(false);
 
   const monthByColumn = new Map(contributions.months.map((m) => [m.column, m.label]));
   const chartLabel = `${contributions.total.toLocaleString("en-US")} contributions in the last year`;
@@ -387,7 +386,7 @@ export default function Portfolio({ contributions }: { contributions: Contributi
 
         {/* Performance – live GitHub graph */}
         <section aria-label="GitHub contributions" className="flex flex-col gap-5">
-          <h2 className="text-sm font-medium tracking-tight">Throughput</h2>
+          <h2 className="text-sm font-medium tracking-tight">GitHub</h2>
           <div className="no-scrollbar scroll-fade-x max-w-full overflow-x-auto overflow-y-hidden pb-1">
             <div className="w-max">
               {/* month labels */}
@@ -678,21 +677,11 @@ export default function Portfolio({ contributions }: { contributions: Contributi
 
         {/* Skills */}
         <section aria-labelledby="skills-heading" className="flex flex-col gap-5">
-          <div className="flex items-center justify-between">
-            <h2 id="skills-heading" className="text-sm font-medium tracking-tight">Skills</h2>
-            <SeeMoreButton open={skillsExpanded} onClick={() => setSkillsExpanded((v) => !v)} controls="skills-details" />
-          </div>
+          <h2 id="skills-heading" className="text-sm font-medium tracking-tight">Skills</h2>
           <div id="skills-details" className="space-y-4">
-            {skillEntries.slice(0, 4).map(([category, items]) => (
+            {skillEntries.map(([category, items]) => (
               <SkillRow key={category} category={category} items={items} />
             ))}
-            <Collapse open={skillsExpanded}>
-              <div className="space-y-4">
-                {skillEntries.slice(4).map(([category, items]) => (
-                  <SkillRow key={category} category={category} items={items} />
-                ))}
-              </div>
-            </Collapse>
           </div>
         </section>
 

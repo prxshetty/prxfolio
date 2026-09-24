@@ -11,7 +11,6 @@ projects:
     tech: "Python, React, Ollama, OpenAI-compatible APIs"
     image: "/images/projects/margin.png"
     link: "https://prxshetty.github.io/margin/"
-    youtube: "https://youtu.be/X18DxQ_3ju8?si=Kv5BRzR_pR2ZQKbl"
 
   - title: "Hugo Noir"
     description: "A clean, minimalistic theme for Hugo with a focus on readability, simplicity, and multilingual support."
